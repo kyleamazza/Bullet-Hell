@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour {
         {
             lastBulletTime = Time.time;
             ActivateBullet();
+            SoundManager.instance.PlayAudioParameter(AudioName.laserShot);
         }
     }
 
