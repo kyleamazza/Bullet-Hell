@@ -4786,8 +4786,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 0860f5f9f9f8af545afc75f485f87413, type: 3}
     volume: 1
     priority: 1
-    pitchLow: 1
-    pitchHigh: 1
+    pitchLow: 0.9
+    pitchHigh: 1.1
 --- !u!1001 &188021139
 Prefab:
   m_ObjectHideFlags: 0
