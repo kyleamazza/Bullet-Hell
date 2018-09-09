@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log("Bomb");
-            // bomb it up
+            // TODO: bomb it up
         }
     }
 

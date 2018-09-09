@@ -13,7 +13,7 @@ public class ObjectPooler : MonoBehaviour {
         instance = this;
     }
 
-    // Use this for initialization
+    // Initialize Object Pool with each category of items to pool as placed in Inspector
     void Start()
     {
         pooledObjects = new List<GameObject>();
@@ -27,6 +27,7 @@ public class ObjectPooler : MonoBehaviour {
         }
 	}
 
+    // Gets pooled object via tag, or expands the pool if all currently pooled objects are active
     public GameObject GetPooledObject(string tag)
     {
         for (int i = 0; i < pooledObjects.Count; i++)

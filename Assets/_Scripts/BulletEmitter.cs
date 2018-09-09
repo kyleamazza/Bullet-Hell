@@ -12,7 +12,6 @@ public class BulletEmitter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         bulletPool = ObjectPooler.instance;
-        timeBetweenBullets = 0.5f;
 	}
 	
 	// Update is called once per frame

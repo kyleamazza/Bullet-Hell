@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Wave Config")]
 public class WaveConfig : ScriptableObject {
 
-    [SerializeField] AnimationClip pathAnim;
     [SerializeField] RuntimeAnimatorController pathAnimController;
     //[SerializeField] int numberOfEnemies;
     [SerializeField] int numberOfEnemies;
@@ -16,11 +15,6 @@ public class WaveConfig : ScriptableObject {
     public RuntimeAnimatorController PathAnimController
     {
         get { return pathAnimController; }
-    }
-
-    public AnimationClip PathAnim
-    {
-        get { return pathAnim; }
     }
 
 	public int NumberOfEnemies
