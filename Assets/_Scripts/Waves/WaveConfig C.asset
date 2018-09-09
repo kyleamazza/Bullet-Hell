@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 463cdd8bb44909a4db8848920de7fbff, type: 3}
-  m_Name: WaveConfig B
+  m_Name: WaveConfig C
   m_EditorClassIdentifier: 
-  pathAnim: {fileID: 7400000, guid: 9df26c99974c19147bca6947552173a1, type: 2}
-  pathAnimController: {fileID: 9100000, guid: f6c8271745a81224892b7527ed8b7e7e, type: 2}
-  numberOfEnemies: 10
+  pathAnim: {fileID: 7400000, guid: 81fd82c5e9041c4499b64ce51e1df116, type: 2}
+  pathAnimController: {fileID: 9100000, guid: 59e81c03273080c409d666c82019135e, type: 2}
+  numberOfEnemies: 5
   spawnDelayTimer: 0.15
   movementSpeed: 5
