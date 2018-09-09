@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
 
     private void ActivateBullet()
     {
-        GameObject nextInactiveBullet = bulletPool.GetPooledObject("Projectile");
+        GameObject nextInactiveBullet = bulletPool.GetPooledObject("Bullet");
 
         if (!nextInactiveBullet) return;
 

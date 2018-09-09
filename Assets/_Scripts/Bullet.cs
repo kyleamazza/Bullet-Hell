@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour {
 
     private void OnEnable()
     {
-        Invoke("Destroy", deletionTime);
+        StartCoroutine(DeactivateBullet());
     }
 
     // Update is called once per frame
@@ -17,8 +17,9 @@ public class Bullet : MonoBehaviour {
         transform.Translate(0, speed * Time.deltaTime, 0);
 	}
 
-    void Destroy()
+    IEnumerator DeactivateBullet()
     {
+        yield return new WaitForSeconds(deletionTime);
         gameObject.SetActive(false);
     }
 
