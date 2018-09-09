@@ -12,16 +12,17 @@ public class PlayerController : MonoBehaviour {
     float lastBulletTime;
     [SerializeField] float fireRate = 0.08f;
 
-    [SerializeField] int bulletPoolAmount = 200;
     [SerializeField] GameObject bullet;
+    ObjectPooler bulletPool;
     List<GameObject> bullets;
+    Vector3 bulletOffsetX = new Vector3(-0.15f, 0);
 
     float xMin, xMax, yMin, yMax;
 
     // Use this for initialization
     void Start () {
         InitializeMovementBoundaries();
-        InitializeBulletPool();
+        bulletPool = ObjectPooler.instance;
 	}
 	
 	// Update is called once per frame
@@ -62,25 +63,13 @@ public class PlayerController : MonoBehaviour {
 
     private void ActivateBullet()
     {
-        GameObject nextInactiveBullet = GetNextInactiveBullet();
+        GameObject nextInactiveBullet = bulletPool.GetPooledObject("Bullet");
 
         if (!nextInactiveBullet) return;
 
-        nextInactiveBullet.transform.position = transform.position;
+        nextInactiveBullet.transform.position = transform.position + bulletOffsetX;
         nextInactiveBullet.transform.rotation = transform.rotation;
         nextInactiveBullet.SetActive(true);
-    }
-
-    private GameObject GetNextInactiveBullet()
-    {
-        for (int i = 0; i < bullets.Count; i++)
-        {
-            if (!bullets[i].activeInHierarchy)
-            {
-                return bullets[i];
-            }
-        }
-        return null;
     }
 
     private void Bomb()
@@ -88,7 +77,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log("Bomb");
-            // bomb it up
+            // TODO: bomb it up
         }
     }
 
@@ -99,17 +88,6 @@ public class PlayerController : MonoBehaviour {
         xMax = gameCamera.ViewportToWorldPoint(Vector3.right).x - padding;
         yMin = gameCamera.ViewportToWorldPoint(Vector3.zero).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(Vector3.up).y - padding;
-    }
-
-    private void InitializeBulletPool()
-    {
-        bullets = new List<GameObject>();
-        for (int i = 0; i < bulletPoolAmount; i++)
-        {
-            GameObject obj = (GameObject)Instantiate(bullet);
-            obj.SetActive(false);
-            bullets.Add(obj);
-        }
     }
 
     private bool hasClearedBulletDelayTimer()
